@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_181915) do
+ActiveRecord::Schema.define(version: 2019_03_04_183338) do
 
   create_table "bodies", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2019_03_04_181915) do
     t.index ["world_id"], name: "index_bodies_on_world_id"
   end
 
+  create_table "citizens", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "phrase"
+    t.integer "world_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["world_id"], name: "index_citizens_on_world_id"
+  end
+
   create_table "deities", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -31,16 +41,6 @@ ActiveRecord::Schema.define(version: 2019_03_04_181915) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["world_id"], name: "index_deities_on_world_id"
-  end
-
-  create_table "npcs", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.string "phrase"
-    t.integer "world_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["world_id"], name: "index_npcs_on_world_id"
   end
 
   create_table "spirits", force: :cascade do |t|

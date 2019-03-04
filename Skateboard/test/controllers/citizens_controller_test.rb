@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NpcTest < ActiveSupport::TestCase
+class CitizensControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

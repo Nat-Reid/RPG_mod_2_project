@@ -1,0 +1,6 @@
+<h1>In <%= @world.setting %></h1>
+
+<h2>inhabitants</h2>
+<% @inhabitants.each do |inhabitant| %>
+  <%= link_to(inhabitant.name, inhabitant) %><br>
+<% end %>

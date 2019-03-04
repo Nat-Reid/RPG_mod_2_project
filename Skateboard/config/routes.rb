@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :deities
+  resources :citizens
+  resources :deities do
+    get 'riddle', to: 'deities#riddle'
+  end
   resources :bodies
-  resources :npcs
   resources :worlds
   resources :spirits
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

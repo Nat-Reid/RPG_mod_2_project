@@ -1,2 +1,0 @@
-class NpCsController < ApplicationController
-end
