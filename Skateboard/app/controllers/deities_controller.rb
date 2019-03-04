@@ -1,0 +1,2 @@
+class DeitiesController < ApplicationController
+end
