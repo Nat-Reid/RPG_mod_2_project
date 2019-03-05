@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_183338) do
+ActiveRecord::Schema.define(version: 2019_03_05_005649) do
 
   create_table "bodies", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_183338) do
     t.integer "world_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "defeated"
     t.index ["world_id"], name: "index_deities_on_world_id"
   end
 
@@ -53,6 +54,8 @@ ActiveRecord::Schema.define(version: 2019_03_04_183338) do
     t.string "setting"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
+    t.string "url"
   end
 
 end

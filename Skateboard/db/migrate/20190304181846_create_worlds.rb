@@ -3,6 +3,7 @@ class CreateWorlds < ActiveRecord::Migration[5.2]
     create_table :worlds do |t|
       t.string :setting
 
+
       t.timestamps
     end
   end

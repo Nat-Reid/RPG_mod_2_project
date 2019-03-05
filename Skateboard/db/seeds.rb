@@ -6,12 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-5.times do
-  World.create(setting: Faker::Address.city)
-end
+cloud = World.create(setting: Faker::Address.city, description: "a beautiful expanse of white billowy matter.", url: "https://www.airbusnewtalent.com/images/clouds.gif")
+glitch = World.create(setting: Faker::Address.city, description: "the worst thing you've ever seen.", url: "https://media.boingboing.net/wp-content/uploads/2015/11/ezgif-1902210988.gif")
 
 15.times do
-  Deity.create(name: Faker::Books::Lovecraft.deity, world: World.all.sample, phrase: Faker::GreekPhilosophers.quote)
+  Deity.create(name: Faker::Books::Lovecraft.deity, world: World.all.sample, phrase: Faker::GreekPhilosophers.quote, defeated: false, description: Faker::SlackEmoji.emoji)
 end
 
 60.times do

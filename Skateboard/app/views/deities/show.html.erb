@@ -1,3 +1,10 @@
+<%if flash[:failure]%>
+<p style="color:red">"<%=flash[:failure]%>!"</p>
+<%elsif flash[:notice]%>
+<p style="color:green">"<%=flash[:notice]%>!"</p>
+<%end%>
+
+<%if @deity.defeated == false%>
 <h1>You See <%= @deity.description %></h1>
 
 <p>"I am <%= @deity.name %>. I am here to tell you a riddle:"</p>
@@ -7,6 +14,9 @@
   <%= text_field_tag :'answer' %>
   <%= submit_tag "take a gander" %>
 <% end %>
+<%else%>
+<h1>You see the defeated husk of <%=@deity.name%>.</h1>
+<%end%>
 
 <p>Go back to <%= link_to(@deity.world.setting, world_path(@deity.world_id)) %>
 </p>

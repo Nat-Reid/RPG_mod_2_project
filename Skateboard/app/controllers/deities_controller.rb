@@ -2,12 +2,15 @@ class DeitiesController < ApplicationController
   before_action :set_deity, only: [:show]
 
   def riddle
-    # byebug
-    if :answer.downcase == "footsteps"
+    @deity = Deity.find(params[:deity_id])
+    if riddle_params.downcase == "footsteps"
       flash[:notice] = "You earned this core piece!"
+      @deity.defeated = true
+      @deity.save
     else
-      flash[:notice] = "That is incorrect you bumbling buffoon"
+      flash[:failure] = "That is incorrect you bumbling buffoon"
     end
+    redirect_to @deity
   end
 
   private
