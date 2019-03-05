@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :citizens
   resources :deities do
-    get 'riddle', to: 'deities#riddle'
+    post 'riddle', to: 'deities#riddle'
   end
   resources :bodies
   resources :worlds

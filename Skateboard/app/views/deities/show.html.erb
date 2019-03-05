@@ -1,0 +1,12 @@
+<h1>You See <%= @deity.description %></h1>
+
+<p>"I am <%= @deity.name %>. I am here to tell you a riddle:"</p>
+
+<%= form_tag deity_riddle_path(@deity) do%>
+  <label>The more you take, the more you leave behind. What am I?</label>
+  <%= text_field_tag :'answer' %>
+  <%= submit_tag "take a gander" %>
+<% end %>
+
+<p>Go back to <%= link_to(@deity.world.setting, world_path(@deity.world_id)) %>
+</p>

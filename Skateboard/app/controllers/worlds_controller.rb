@@ -12,7 +12,7 @@ class WorldsController < ApplicationController
     @world.deities.each{|deity| @inhabitants << deity}
     @inhabitants.shuffle!
   end
-  
+
   private
 
   def set_world
@@ -20,6 +20,6 @@ class WorldsController < ApplicationController
   end
 
   def world_params
-    params.requite(:world).permit(:setting)
+    params.require(:world).permit(:setting)
   end
 end
