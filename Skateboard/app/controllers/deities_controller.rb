@@ -4,13 +4,14 @@ class DeitiesController < ApplicationController
   def riddle
     if riddle_params.downcase == @deity.answer #correct answer
       @core = @deity.core
-      # @core << @user_body
-      byebug
+      @user_body.cores << @core
+      # byebug
       flash[:notice] = "You earned this core piece!"
       @deity.update(defeated: true)
     else
       flash[:failure] = "That is incorrect you bumbling buffoon"
     end
+    # byebug
     redirect_to @deity
   end
 
