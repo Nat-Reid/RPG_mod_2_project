@@ -1,8 +1,11 @@
 class DeitiesController < ApplicationController
-  before_action :set_deity, only: [:show, :riddle]
+  before_action :set_deity_world_and_user_body, only: [:show, :riddle]
 
   def riddle
-    if riddle_params.downcase == @deity.answer
+    if riddle_params.downcase == @deity.answer #correct answer
+      @core = @deity.core
+      # @core << @user_body
+      byebug
       flash[:notice] = "You earned this core piece!"
       @deity.update(defeated: true)
     else
@@ -12,13 +15,15 @@ class DeitiesController < ApplicationController
   end
 
   def show
-    @world = @deity.world
+
   end
 
   private
 
-  def set_deity
+  def set_deity_world_and_user_body
     @deity = Deity.find(params[:id])
+    @world = @deity.world
+    @user_body = @user.find_body_by_world(@world)
   end
 
   def deity_params

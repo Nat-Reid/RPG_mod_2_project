@@ -5,4 +5,16 @@ class Spirit < ApplicationRecord
 
   validates :name, uniqueness: true
 
+  def find_body_by_world(world)
+    my_bods = self.bodies
+    my_world_ids = self.world_ids
+    if (my_bods & world.bodies).empty?
+      nil
+    else
+      correct_bods = my_bods & world.bodies
+      correct_bods[0]
+      #the body that you have on that worlds
+    end
+  end
+
 end

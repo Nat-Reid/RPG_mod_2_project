@@ -7,6 +7,11 @@ class WorldsController < ApplicationController
 
   def show
     @inhabitants = @world.inhabitants
+    @user_body = @user.find_body_by_world(@world)
+    # byebug
+    flash[:world_id] = @world.id
+    flash[:spirit_id] = @user.id
+    redirect_to new_body_path if !@user_body
   end
 
   private

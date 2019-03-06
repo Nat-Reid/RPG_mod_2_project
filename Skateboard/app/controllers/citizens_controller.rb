@@ -3,6 +3,7 @@ class CitizensController < ApplicationController
 
     def show
       @world = @citizen.world
+      @user_body = @user.find_body_by_world(@world)
     end
 
     private

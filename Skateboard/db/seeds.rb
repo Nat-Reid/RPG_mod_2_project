@@ -11,8 +11,8 @@ glitch = World.create(setting: Faker::Address.city, description: "the worst thin
 World.create(setting: Faker::Address.city, description: "a land of flowing water", url: "https://free-hd-wall-papers.com/images/gif-wallpaper/gif-wallpaper-15.gif" )
 
 15.times do
-  Deity.create(name: Faker::Books::Lovecraft.deity, world: World.all.sample, phrase: Faker::GreekPhilosophers.quote, defeated: false, description: Faker::SlackEmoji.emoji, riddle: "The more you take, the more you leave behind. What am I?", answer: "footsteps")
-
+  deity = Deity.create(name: Faker::Books::Lovecraft.deity, world: World.all.sample, phrase: Faker::GreekPhilosophers.quote, defeated: false, description: Faker::SlackEmoji.emoji, riddle: "The more you take, the more you leave behind. What am I?", answer: "footsteps")
+  Core.create(deity_id: deity.id, essence: Faker::Space.constellation)
 end
 
 60.times do
@@ -23,6 +23,8 @@ end
   Spirit.create(name: Faker::Games::Pokemon.name)
 end
 
-15.times do
-  Body.create(name: Faker::Movies::HitchhikersGuideToTheGalaxy.character, world: World.all.sample, spirit: Spirit.all.sample)
-end
+Spirit.create(name:"Bob", username: "bob")
+#
+# 15.times do
+#   Body.create(name: Faker::Movies::HitchhikersGuideToTheGalaxy.character, world: World.all.sample, spirit: Spirit.all.sample)
+# end
