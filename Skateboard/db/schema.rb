@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_005649) do
+ActiveRecord::Schema.define(version: 2019_03_06_001353) do
 
   create_table "bodies", force: :cascade do |t|
     t.string "name"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2019_03_05_005649) do
     t.index ["world_id"], name: "index_citizens_on_world_id"
   end
 
+  create_table "cores", force: :cascade do |t|
+    t.integer "deity_id"
+    t.integer "body_id"
+    t.string "essence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["body_id"], name: "index_cores_on_body_id"
+    t.index ["deity_id"], name: "index_cores_on_deity_id"
+  end
+
   create_table "deities", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -41,6 +51,8 @@ ActiveRecord::Schema.define(version: 2019_03_05_005649) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "defeated"
+    t.string "riddle"
+    t.string "answer"
     t.index ["world_id"], name: "index_deities_on_world_id"
   end
 

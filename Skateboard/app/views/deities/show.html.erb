@@ -4,13 +4,13 @@
 <p style="color:green">"<%=flash[:notice]%>!"</p>
 <%end%>
 
-<%if @deity.defeated == false%>
+<%if !@deity.defeated%>
 <h1>You See <%= @deity.description %></h1>
 
 <p>"I am <%= @deity.name %>. I am here to tell you a riddle:"</p>
 
 <%= form_tag deity_riddle_path(@deity) do%>
-  <label>The more you take, the more you leave behind. What am I?</label>
+  <label><%= @deity.riddle %></label>
   <%= text_field_tag :'answer' %>
   <%= submit_tag "take a gander" %>
 <% end %>

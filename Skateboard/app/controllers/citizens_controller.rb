@@ -1,6 +1,9 @@
 class CitizensController < ApplicationController
     before_action :set_citizen, only: [:show]
 
+    def show
+      @world = @citizen.world
+    end
 
     private
 
@@ -10,5 +13,5 @@ class CitizensController < ApplicationController
 
     def citizen_params
     params.require(:citizen).permit(:name, :description, :phrase)
-    end 
+    end
 end

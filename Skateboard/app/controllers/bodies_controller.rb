@@ -1,6 +1,9 @@
 class BodiesController < ApplicationController
     before_action :set_body, only: [:show]
 
+    def show
+      @world = @body.world
+    end
 
     private
 
@@ -10,5 +13,5 @@ class BodiesController < ApplicationController
 
     def body_params
     params.require(:body).permit(:name, :description, :phrase)
-    end 
+    end
 end

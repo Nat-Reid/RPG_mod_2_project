@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body background="<%=@world ? @world.url : "https://free-hd-wall-papers.com/images/gif-wallpaper/gif-wallpaper-22.gif"%>">
     <%= yield %>
   </body>
 </html>

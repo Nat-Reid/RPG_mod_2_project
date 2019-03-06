@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  resources :cores
   resources :citizens
-  resources :deities do
-    post 'riddle', to: 'deities#riddle'
-  end
+  resources :deities
+  post 'deities/:id/riddle', to: 'deities#riddle', as: 'deity_riddle'
   resources :bodies
   resources :worlds
   resources :spirits

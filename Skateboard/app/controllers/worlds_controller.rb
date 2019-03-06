@@ -6,11 +6,7 @@ class WorldsController < ApplicationController
   end
 
   def show
-    @inhabitants = []
-    @world.citizens.each{|citizen| @inhabitants << citizen}
-    @world.bodies.each{|body| @inhabitants << body}
-    @world.deities.each{|deity| @inhabitants << deity}
-    @inhabitants.shuffle!
+    @inhabitants = @world.inhabitants
   end
 
   private

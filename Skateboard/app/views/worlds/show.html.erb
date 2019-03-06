@@ -1,4 +1,3 @@
-<body background="<%=@world.url%>">
 <h1>In <%= @world.setting %></h1>
 <h2>You see <%=@world.description%></h2>
 
@@ -6,6 +5,5 @@
 <% @inhabitants.each do |inhabitant| %>
   <%= link_to(inhabitant.name, inhabitant) %><br>
 <% end %>
-</body>
 <br>
 <h2><%=link_to "Back to Worlds", worlds_path%></h2>

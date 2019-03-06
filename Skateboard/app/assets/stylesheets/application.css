@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+ html, body {
+  /* background: url(images/bg.jpg) no-repeat center center fixed; */
+  height: 100%;
+}
+
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  font-family: "Comic Sans MS";
+  display:   table-cell;
+  vertical-align: middle;
+  background-position: center;
+}
