@@ -1,0 +1,4 @@
+<h1>Select a world to go to!</h1>
+<% @worlds.each do |world| %>
+  <%= link_to(world.setting, world) %><br>
+<% end %>

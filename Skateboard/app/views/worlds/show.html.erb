@@ -1,0 +1,9 @@
+<h1>In <%= @world.setting %></h1>
+<h2>You see <%=@world.description%></h2>
+
+<h3>inhabitants</h3>
+<% @inhabitants.each do |inhabitant| %>
+  <%= link_to(inhabitant.name, inhabitant) %><br>
+<% end %>
+<br>
+<h2><%=link_to "Back to Worlds", worlds_path%></h2>

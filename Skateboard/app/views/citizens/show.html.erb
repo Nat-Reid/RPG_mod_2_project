@@ -1,0 +1,6 @@
+<h1>You see <%=@citizen.description%>!</h1>
+<p>I'm <%=@citizen.name%>.</p>
+<br>
+<p>"<%=@citizen.phrase%>"</p>
+<br>
+<%=link_to "Go Back", world_path(@citizen.world_id)%>
