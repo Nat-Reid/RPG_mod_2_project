@@ -1,6 +1,7 @@
 <%  if flash[:error]  %>
 <h3 style="color:yellow;"><%= flash[:error]%></h3>
 <% end %>
+<%=flash[:message] if flash[:message]%>
 
 <h1>Login<h1>
 <%= form_tag login_path, method: "post" do %>

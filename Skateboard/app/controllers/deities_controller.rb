@@ -16,7 +16,7 @@ class DeitiesController < ApplicationController
   end
 
   def show
-
+    
   end
 
   private

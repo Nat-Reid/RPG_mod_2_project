@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to worlds_path
       session[:user_id] = @user.id
     else
-      flash[:error] = "Go die! You are a terrible person! Why would you do this to our beautiful website :(((((("
+      flash[:error] = "Unrecognized login information."
       redirect_to login_path
     end
   end
