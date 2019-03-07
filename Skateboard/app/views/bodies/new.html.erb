@@ -1,5 +1,5 @@
 <h1>Who do you want to inhabit on this world?</h1>
-<%= flash[:errors] if flash[:errors] %>
+<%= flash[:errors][0] if flash[:errors] %>
 <%= form_for @body do |f| %>
   <%= f.hidden_field :spirit_id, value: flash[:spirit_id] %>
   <%= f.hidden_field :world_id, value: flash[:world_id] %>
