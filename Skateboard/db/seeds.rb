@@ -70,7 +70,7 @@ end
 # end
 
 60.times do
-  Citizen.create(name: Faker::Books::Dune.character, world: World.all.sample, phrase: Faker::Books::Dune.saying)
+  Citizen.create(name: Faker::Books::Dune.character, world: World.all.sample, phrase: Faker::Books::Dune.saying, description: Faker::Games::ElderScrolls.creature)
 end
 
 5.times do
