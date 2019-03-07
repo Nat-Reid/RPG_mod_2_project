@@ -9,6 +9,8 @@ World.destroy_all
 Deity.destroy_all
 Citizen.destroy_all
 Core.destroy_all
+Spirit.destroy_all
+Body.destroy_all
 
 
 
