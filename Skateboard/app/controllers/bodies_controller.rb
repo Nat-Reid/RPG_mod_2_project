@@ -3,7 +3,7 @@ class BodiesController < ApplicationController
 
     def show
       @world = @body.world
-      @user_body = @user.find_body_by_world(@world)
+      @user_body = @user&.find_body_by_world(@world)
     end
 
     def new

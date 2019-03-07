@@ -32,7 +32,7 @@ Core.destroy_all
     },
     "5" => {
         "riddle" => "Alive without breath, As cold as death; Never thirsty, ever drinking, All in mail never clinking",
-        "answer" => "wish"
+        "answer" => "fish"
     },
     "6" => {
         "riddle" => "What has many keys, but can't even open a single door?",
@@ -58,7 +58,7 @@ World.create(setting: Faker::Address.city, description: "a land of flowing water
 
 
 World.all.each do |world|
-    3.times do 
+    3.times do
         riddle = @riddles.values.sample
         world.deities.create(name: Faker::Ancient.god, phrase: Faker::GreekPhilosophers.quote, defeated: false, description: Faker::Superhero.descriptor, riddle: riddle["riddle"], answer: riddle["answer"]).create_core(essence: Faker::Space.constellation)
     end
