@@ -18,6 +18,7 @@
   <div class="nav navbar-nav navbar-right">
     <%if logged_in?%>
       <%= link_to "Logout", logout_path, method: "delete"%>
+      <%=link_to "Check your inventory", body_inventory_path(@user_body)%>
     <%else%>
       <%= link_to "Login", login_path %>
     <%end%>
@@ -25,7 +26,7 @@
 
   <div class="text-align-right">
     <% if @user_body %>
-      <h3>Hi there <%= @user_body&.name %>!</h3>
+      <h3>"Hi there <%= @user_body&.name %>!"</h3>
     <% end %>
   </div>
 

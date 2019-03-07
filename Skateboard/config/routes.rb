@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :citizens
   resources :deities
   post 'deities/:id/riddle', to: 'deities#riddle', as: 'deity_riddle'
-  resources :bodies
+  resources :bodies do
+  get 'inventory', to: 'bodies#inventory'
+  end
   resources :worlds
   resources :spirits
   get '/login', to: 'sessions#new'

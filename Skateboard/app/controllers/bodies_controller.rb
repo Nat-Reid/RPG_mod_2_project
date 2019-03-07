@@ -23,6 +23,11 @@ class BodiesController < ApplicationController
       end
     end
 
+    def inventory
+      @body = Body.find(params[:body_id])
+      @world = @body.world
+    end
+
     private
 
     def set_body

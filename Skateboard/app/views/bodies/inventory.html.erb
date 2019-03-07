@@ -1,0 +1,14 @@
+<p>note to self: check here whether the spirit/user has cores or not. if so, show the following.</p>
+<h1>You've collected some cores.</h1>
+<br>
+<h2>Here's what you have so far: </h2>
+<ul>
+<%@user.bodies.each do |body|%>
+<% body.cores.each do |core|%>
+<li><%=core.essence%> core, from <%=core.deity.name%> in <%=core.body.world.setting%></li>
+<%end%>
+<%end%>
+</ul>
+<p>Nice! Click <%=link_to "here", new_world_path%> once you get three cores from the same world.<p>
+<br>
+<%=link_to "Back to world", @body.world%> <%=link_to "Show all worlds", worlds_path%>
