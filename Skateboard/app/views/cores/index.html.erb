@@ -1,0 +1,6 @@
+<h2>Hi <%= @user&.name %>!</h2>
+<h4>Here are your cores:</h4>
+<% @cores.each do |core| %>
+<p style="color:turquoise;"><%= core.essence %></p>
+<% end %>
+<%= link_to "back", worlds_path %>

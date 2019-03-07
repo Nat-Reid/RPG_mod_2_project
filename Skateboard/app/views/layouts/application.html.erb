@@ -25,11 +25,16 @@
 
   <div class="text-align-right">
     <% if @user_body %>
-      <h3>Hi there <%= @user_body&.name %>!</h3>
+      <% if @world&.defeated %>
+        <h3><%= @world.setting %> Has been defeated</h3>
+      <% else %>
+        <h3>Hi there <%= @user_body&.name %>!</h3>
+      <% end %>
     <% end %>
   </div>
 
   <body background="<%=@world ? @world.url : "https://free-hd-wall-papers.com/images/gif-wallpaper/gif-wallpaper-22.gif"%>">
-    <%= yield if @user%>
+    <%= link_to "Back to the spirit plane", worlds_path unless @worlds %> <!-- doesnt show if already in spirit plane -->
+    <%= yield if @user && !@world&.defeated%>
   </body>
 </html>

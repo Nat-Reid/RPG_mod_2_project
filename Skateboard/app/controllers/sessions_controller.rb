@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = Spirit.find_by(username: params[:username])
     if @user
       redirect_to worlds_path
-      session[:user_id] = @user.id
+      session[:user_id] = @user&.id
     else
       flash[:error] = "Unrecognized login information."
       redirect_to login_path
