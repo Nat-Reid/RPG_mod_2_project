@@ -1,4 +1,4 @@
-<h3> Hi <%= @user&.name %>!, you have <%= @user&.cores.count %> <%= link_to "cores", cores_path %></h3>
+<h3> Hi <%= @user&.name %>!, you have <%= @user&.cores&.count %> <%= link_to "cores", cores_path %></h3>
 
 <h1>Select a world to go to!</h1>
 <% @worlds.each do |world| %>

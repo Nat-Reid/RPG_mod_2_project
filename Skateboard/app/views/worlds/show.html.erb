@@ -4,11 +4,12 @@
 </div>
 <h2>You see <%=@world.description%></h2>
 
-<h3>inhabitants</h3>
+<h3>inhabitants:</h3>
 <% @inhabitants.each do |inhabitant| %>
 <%if @user.bodies.include?(inhabitant)%>
-<p>You're here too!<p>
 <%else%>
   <%= link_to(inhabitant.name, inhabitant) %><br>
 <% end %>
+<%end%>
 <br>
+<p>You're here too!</p>
