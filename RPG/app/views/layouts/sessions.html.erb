@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Skateboard</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body background=https://free-hd-wall-papers.com/images/gif-wallpaper/gif-wallpaper-22.gif>
+    <%= yield %>
+  </body>
+
+  <div>
+    <%=link_to "Create a New Spirit!", new_spirit_path%>
+  </div>
+</html>

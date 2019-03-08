@@ -1,0 +1,20 @@
+<%if flash[:failure]%>
+<h3 style="color:red">"<%=flash[:failure]%>!"</h3>
+<%elsif flash[:notice]%>
+<h3 style="color:green">"<%=flash[:notice]%>!"</h3>
+<%end%>
+
+<%if !@deity.defeated%>
+  <h1>You see <%= @deity.description %></h1>
+
+  <p>"I am <%= @deity.name %>. I am here to tell you a riddle:"</p>
+
+  <%= form_tag world_deity_riddle_path(@world, @deity) do%>
+    <label><%= @deity.riddle %></label>
+    <%= text_field_tag :'answer' %>
+    <%= submit_tag "take a gander" %>
+  <% end %>
+
+<%else%>
+  <h1>You see the defeated husk of <%=@deity.name%>.</h1>
+<% end %>
