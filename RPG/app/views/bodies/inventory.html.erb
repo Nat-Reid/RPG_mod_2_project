@@ -1,0 +1,12 @@
+<% if !@user_body.cores.blank? %>
+  <h1>You've collected some cores.</h1>
+  <br>
+  <h2>Here's what you have on <%= @user_body.name %>: </h2>
+  <ul>
+  <% @user_body.cores.each do |core|%>
+    <li><%=core.essence%> core, from <%=core.deity.name%> in <%=core.world.name%></li>
+  <% end %>
+  </ul>
+<% else %>
+  <h1>You haven't collected any of this worlds cores yet</h1>
+<% end %>

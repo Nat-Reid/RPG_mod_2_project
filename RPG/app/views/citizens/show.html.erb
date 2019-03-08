@@ -1,0 +1,8 @@
+<%if @citizen.description == nil%>
+<h1>You see someone approach.</h1>
+<%else%>
+<h1>You see <%=@citizen.description%>.</h1>
+<%end%>
+<p>"I'm <%=@citizen.name%>," they say. "<%=@citizen.phrase%>"</p>
+<br>
+<p>They seem a little busy. Perhaps there's someone more useful around.</p>

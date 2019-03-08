@@ -1,0 +1,18 @@
+<% if @world.active? %>
+  <h1>In <%= @world.name %></h1>
+  <div class="">
+    You have <%= "#{@user_body.cores.count} / #{@world.cores.count}" %> of this world's cores!
+  </div>
+  <h2>You see <%=@world.description%></h2>
+
+  <h3>inhabitants</h3>
+  <% @inhabitants.each do |inhabitant| %>
+    <%if !@user.bodies.include?(inhabitant)%>
+      <%= link_to(inhabitant.name, [@world, inhabitant]) %><br>
+    <% end %>
+  <% end %>
+  <br>
+  <%= link_to "Your Cores", world_body_inventory_path(@world,@user_body) %>
+<% else %>
+  <h3><%= @world.name %> Has been defeated</h3>
+<% end %>
