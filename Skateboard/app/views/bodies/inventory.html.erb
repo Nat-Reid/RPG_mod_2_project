@@ -5,9 +5,9 @@
 <ul>
 <%@user.bodies.each do |body|%>
 <% body.cores.each do |core|%>
-<li><%=core.essence%> core, from <%=core.deity.name%> in <%=core.body.world.setting%></li>
-<%end%>
-<%end%>
+<li><%=core.essence%> core, from <%=core.deity.name%> in <%=core.world.setting%></li>
+<% end%>
+<% end%>
 </ul>
 <p>Nice! Click <%=link_to "here", new_world_path%> once you get three cores from the same world.<p>
 <br>

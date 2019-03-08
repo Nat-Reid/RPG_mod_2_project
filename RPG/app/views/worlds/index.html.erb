@@ -1,0 +1,6 @@
+<h3> Hi <%= @user.name %>!, you have <%= @user.cores.count %> <%= link_to "core(s)", inventory_path %></h3>
+
+<h1>Select a world to go to!</h1>
+<% @worlds.each do |world| %>
+  <%= link_to(world.name, world) %><br>
+<% end %>
