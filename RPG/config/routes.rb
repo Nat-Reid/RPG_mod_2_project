@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :spirits do
-    get 'inventory', to: 'spirits#inventory'
-  end
+  resources :spirits
+  get 'inventory', to: 'spirits#inventory'
   resources :worlds do
     resources :bodies do
       resources :cores

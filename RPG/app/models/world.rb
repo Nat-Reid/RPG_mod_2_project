@@ -14,4 +14,8 @@ class World < ApplicationRecord
     self.deities.each{|deity| i << deity}
     i.shuffle!
   end
+
+  def active?
+    self.deities.any? { |d| !d.defeated }
+  end
 end
