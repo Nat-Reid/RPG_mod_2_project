@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-World.destroy_all
-Deity.destroy_all
-Citizen.destroy_all
 Core.destroy_all
-
+Deity.destroy_all
+Body.destroy_all
+Citizen.destroy_all
+World.destroy_all
 
 
 
@@ -48,8 +48,13 @@ Core.destroy_all
     },
 }
 
-def set_riddle
-riddle = @riddles.values.sample
+def deity_descriptions
+  [
+    "a glorious heavenly being that shines blindingly bright!",
+    "a wicked demon surrounded by the hate of all evil that ever was!",
+    "a wise deity staring deep in your soul in wait of your own wisdom.",
+    "a feeble old figure that smiles with the eyes of an immortal..."
+  ]
 end
 
 cloud = World.create(name: Faker::Address.city, description: "a beautiful expanse of white billowy matter.", url: "https://www.airbusnewtalent.com/images/clouds.gif")
@@ -57,18 +62,14 @@ glitch = World.create(name: Faker::Address.city, description: "the worst thing y
 waterfall = World.create(name: Faker::Address.city, description: "a land of flowing water.", url: "https://free-hd-wall-papers.com/images/gif-wallpaper/gif-wallpaper-15.gif" )
 underwater = World.create(name: Faker::Address.city, description: "a murky, shimmering expanse.", url: "https://wallpapercave.com/wp/wp2763894.gif" )
 
-
 World.all.each do |world|
-    3.times do
-        riddle = @riddles.values.sample
-        world.deities.create(name: Faker::Ancient.god, phrase: Faker::GreekPhilosophers.quote, defeated: false, description: Faker::Movies::StarWars.wookiee_sentence, riddle: riddle["riddle"], answer: riddle["answer"]).create_core(essence: Faker::Space.constellation)
-    end
+  3.times do
+    riddle = @riddles.values.sample
+    de = world.deities.create(name: Faker::Ancient.god, phrase: Faker::GreekPhilosophers.quote, defeated: false, description: Faker::Movies::StarWars.wookiee_sentence, riddle: riddle["riddle"], answer: riddle["answer"])
+    
+    Core.create(essence: Faker::Space.constellation, deity_id: de.id)
+  end
 end
-# 15.times do
-#   rid = set_riddle
-#   deity = Deity.create(name: Faker::Books::Lovecraft.deity, world: World.all.sample, phrase: Faker::GreekPhilosophers.quote, defeated: false, description: Faker::SlackEmoji.emoji, riddle: rid["riddle"], answer: rid["answer"])
-#   Core.create(deity_id: deity.id, essence: Faker::Space.constellation)
-# end
 
 60.times do
   Citizen.create(name: Faker::Books::Dune.character, world: World.all.sample, phrase: Faker::Books::Dune.saying, description: Faker::Games::ElderScrolls.creature)
