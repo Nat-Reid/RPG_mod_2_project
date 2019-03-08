@@ -1,6 +1,3 @@
-<p>Nice! Click <%=link_to "here", new_world_path%> once you get three cores from the same world.<p>
-
-
 <% if !@user.cores.blank? %>
   <h1>You've collected some cores.</h1>
   <br>
@@ -11,5 +8,6 @@
   <% end %>
   </ul>
 <% else %>
-  <h1>You haven't collected any of this worlds cores yet</h1>
+  <h1>You haven't collected any cores yet...</h1>
+  <h2>Get crackin!</h2>
 <% end %>

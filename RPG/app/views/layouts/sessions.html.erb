@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Skateboard</title>
+    <title>RPG</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body background=https://free-hd-wall-papers.com/images/gif-wallpaper/gif-wallpaper-22.gif>
-    <%= yield %>
-  </body>
-
-  <div>
+  <center>
+    <body background=https://free-hd-wall-papers.com/images/gif-wallpaper/gif-wallpaper-22.gif>
+      <%= yield %>
+    </body>
     <%=link_to "Create a New Spirit!", new_spirit_path%>
-  </div>
+  </center>
 </html>

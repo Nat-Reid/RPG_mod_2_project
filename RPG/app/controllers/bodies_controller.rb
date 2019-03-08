@@ -1,10 +1,10 @@
 class BodiesController < ApplicationController
     before_action :set_body, only: [:show]
 
-    def show
-      @world = @body.world
-      @user_body = @user.find_body_by_world(@world)
-    end
+    # def show
+    #   @world = @body.world
+    #   @user_body = @user.find_body_by_world(@world)
+    # end
 
     def new
       @body = Body.new
@@ -26,7 +26,7 @@ class BodiesController < ApplicationController
     private
 
     def set_body
-    @body = Body.find(params[:id])
+      @body = Body.find(params[:id])
     end
 
     def body_params

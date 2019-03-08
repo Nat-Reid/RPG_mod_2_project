@@ -10,3 +10,7 @@
 <% else %>
   <h1>You haven't collected any of this worlds cores yet</h1>
 <% end %>
+
+<div class="go_back">
+  <%= link_to "Back to #{@world.name}", world_path(@world) %>
+</div>

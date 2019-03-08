@@ -1,7 +1,7 @@
 <%if flash[:failure]%>
-<h3 style="color:red">"<%=flash[:failure]%>!"</h3>
+<h3 style="color:red;">"<%=flash[:failure]%>!"</h3>
 <%elsif flash[:notice]%>
-<h3 style="color:green">"<%=flash[:notice]%>!"</h3>
+<h3 class="defeat_deity">"<%=flash[:notice]%>!"</h3>
 <%end%>
 
 <%if !@deity.defeated%>
@@ -18,3 +18,7 @@
 <%else%>
   <h1>You see the defeated husk of <%=@deity.name%>.</h1>
 <% end %>
+
+<div class="go_back">
+  <%= link_to "Back to #{@world.name}", world_path(@world) %>
+</div>

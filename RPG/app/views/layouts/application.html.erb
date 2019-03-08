@@ -8,21 +8,24 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <style>
-  .menu {
-    color: white;
-  }
-  </style>
 
-
-  <div class="nav navbar-nav navbar-right">
+  <div class="menu">
     <%if logged_in?%>
       <%= link_to "Logout", logout_path, method: "delete"%>
     <%else%>
       <%= link_to "Login", login_path %>
     <%end%>
-  </div></div>
+    <span>
+      <%= link_to "Back to Spirit Plane", worlds_path %>
+    </span>
+  </div>
+  <%# byebug %>
   <body background="<%= background%>" class="container text-align-center"><center>
-    <%= yield %>
+    <div style="color:<%= text_color %>;" class="all">
+      <%= yield %>
+    </div>
   </center></body>
+  <div class="rac">
+    <%=link_to "Raccoon World", @raccoon_world%>
+  </div>
 </html>

@@ -1,13 +1,14 @@
-<%= flash[:errors] if flash[:errors]%>
+<%= flash[:errors] if flash[:errors] %>
 
 <h1>Hello there! Who am I speaking to....?</h1>
-<%=form_for @spirit do |f|%>
-<label>Your Name</label>
-<%=f.text_field :name%><br>
-<label>Username:</label>
-<%=f.text_field :username%>
-<br>
-<label>Password:</label>
-<%=f.password_field :password%>
-<%=f.submit%>
-<%end%>
+<%= form_for @spirit do |f| %>
+  <label>Your Name</label>
+  <%= f.text_field :name %><br>
+  
+  <label>Username:</label>
+  <%= f.text_field :username %><br>
+
+  <label>Password:</label>
+  <%= f.password_field :password %>
+  <%= f.submit %>
+<%end %>

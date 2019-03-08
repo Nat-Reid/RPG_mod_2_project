@@ -1,6 +1,6 @@
 <% if @world.active? %>
   <h1>In <%= @world.name %></h1>
-  <div class="">
+  <div>
     You have <%= "#{@user_body.cores.count} / #{@world.cores.count}" %> of this world's cores!
   </div>
   <h2>You see <%=@world.description%></h2>
@@ -14,5 +14,9 @@
   <br>
   <%= link_to "Your Cores", world_body_inventory_path(@world,@user_body) %>
 <% else %>
-  <h3><%= @world.name %> Has been defeated</h3>
+  <% if flash[:notice]%>
+    <h3 class="defeat_deity">"<%=flash[:notice]%>!"</h3>
+    <%= link_to "View your new cores!", inventory_path(@user) %>
+  <% end%>
+  <h1><%= @world.name %> Has been defeated</h1>
 <% end %>

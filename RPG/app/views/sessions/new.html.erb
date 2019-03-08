@@ -1,13 +1,15 @@
 <%  if flash[:error]  %>
-<h3 style="color:yellow;"><%= flash[:error]%></h3>
+  <h3 style="color:yellow;"><%= flash[:error]%></h3>
 <% end %>
 <%=flash[:message] if flash[:message]%>
 
-<h1>Login or Create a New Spirit<h1>
-<%= form_tag login_path, method: "post" do %>
-<label>Username</label>
-<%= text_field_tag  :username%>
-<label>Password</label>
-<%= password_field_tag :password %>
-<%= submit_tag "Start Your Eternal Journey"%>
-<%end%>
+<div class="all">
+  <h1>Login or Create a New Spirit<h1>
+  <%= form_tag login_path, method: "post" do %>
+    <label>Username</label>
+    <%= text_field_tag  :username%>
+    <label>Password</label>
+    <%= password_field_tag :password %>
+    <%= submit_tag "Start Your Eternal Journey"%>
+  <%end%>
+</div>
