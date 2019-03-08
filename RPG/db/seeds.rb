@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-World.destroy_all
 Deity.destroy_all
 Citizen.destroy_all
 Core.destroy_all
+World.destroy_all
 
 
 
@@ -57,11 +57,15 @@ glitch = World.create(name: Faker::Address.city, description: "the worst thing y
 waterfall = World.create(name: Faker::Address.city, description: "a land of flowing water.", url: "https://free-hd-wall-papers.com/images/gif-wallpaper/gif-wallpaper-15.gif" )
 underwater = World.create(name: Faker::Address.city, description: "a murky, shimmering expanse.", url: "https://wallpapercave.com/wp/wp2763894.gif" )
 
+temp = [1..500]
+#Faker::Ancient.god
 
 World.all.each do |world|
     3.times do
         riddle = @riddles.values.sample
-        world.deities.create(name: Faker::Ancient.god, phrase: Faker::GreekPhilosophers.quote, defeated: false, description: Faker::Movies::StarWars.wookiee_sentence, riddle: riddle["riddle"], answer: riddle["answer"]).create_core(essence: Faker::Space.constellation)
+        de = world.deities.create(name: Faker::Ancient.god, phrase: Faker::GreekPhilosophers.quote, defeated: false, description: Faker::Movies::StarWars.wookiee_sentence, riddle: riddle["riddle"], answer: riddle["answer"])
+
+        Core.create(essence: Faker::Space.constellation, deity_id: de.id)
     end
 end
 # 15.times do
